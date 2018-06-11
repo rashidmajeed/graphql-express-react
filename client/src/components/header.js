@@ -6,7 +6,7 @@ const Header = () => {
     <div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h5 className="App-title">Welcome to React Graphql World</h5>
+        <h4 className="App-title">Welcome to React Express Graphql</h4>
       </header>
     </div>
   )

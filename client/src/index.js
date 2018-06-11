@@ -4,10 +4,22 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/material.js';
 
-ReactDOM.render(
+const rootEl = document.getElementById('root');
+let render = () => {
+  ReactDOM.render(
     <BrowserRouter>
       <App />
-    </BrowserRouter>
-    , document.getElementById('root'));
-    registerServiceWorker();
+    </BrowserRouter>, rootEl)
+}
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    setTimeout(render)
+  })
+}
+
+render();
+
+registerServiceWorker();

@@ -1,9 +1,5 @@
 import mongoose from 'mongoose';
 
-// Monogoose Connection
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/students-db');
-
 const studentSchema = new mongoose.Schema({
   firstName: {
     type: String
@@ -12,6 +8,9 @@ const studentSchema = new mongoose.Schema({
     type: String
   },
   gender: {
+    type: String
+  },
+  image: {
     type: String
   },
   age: {

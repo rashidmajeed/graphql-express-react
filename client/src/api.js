@@ -1,12 +1,25 @@
+const endpointURL = 'http://localhost:9000/graphql';
+
 export async function fetchStudents() {
-    const resp = await fetch('http://localhost:9000/graphql', {
+    const response = await fetch(endpointURL, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ query: '{ students }'})
+      body: JSON.stringify({ 
+        query: `{
+          allStudents {
+            id
+            firstName
+            lastName
+            gender
+            age
+            country
+            department
+          }
+        } `
   
-    });
-  
-    const responsedata = await resp.json();
-    console.log(responsedata);
-    return responsedata.data.students;
-  }
+    })
+  });
+    const responseData = await response.json();
+    console.log(responseData);
+    return responseData.data.allStudents;
+ }

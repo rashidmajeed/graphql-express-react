@@ -7,6 +7,7 @@ const typeDefs = `
           firstName: String
           lastName: String
           gender: Gender
+          image: String
           age: Int
           address: String
           department: String
@@ -16,10 +17,8 @@ const typeDefs = `
 
 
       type Contact {
-          facebook: String
-          skype: String
-          whatsapp: String
-          mobile: Int
+          email: String
+          phone: Int
       }
 
       enum Gender {
@@ -38,6 +37,7 @@ const typeDefs = `
           firstName: String!
           lastName: String
           gender: Gender
+          image: String
           age: Int
           address: String
           department: String
@@ -46,9 +46,8 @@ const typeDefs = `
       }
 
       input ContactInput {
-          facebook: String
-          skype: String 
-        whatsapp: String    
+          email: String
+          phone: Int
       }
 
       type Mutation {

@@ -4,6 +4,9 @@ import { Students } from './dbConnector';
 // resolver map
 export const resolvers = {
     Query: {
+        allStudents: () => {
+            return Students.find();
+        },
         getStudent: (root, { id }) => {
           return new Promise((resolve, object) => {
               Students.findById(id, (err, student) => {
@@ -12,9 +15,7 @@ export const resolvers = {
               });
           });
       },
-      allStudents: () => {
-        return Students.findAll();
-    }
+     
   },
 
     Mutation: {
@@ -23,6 +24,7 @@ export const resolvers = {
                 firstName: input.firstName,
                 lastName: input.lastName,
                 gender: input.gender,
+                image: input.image,
                 age: input.age,
                 address: input.address,
                 department: input.department,
